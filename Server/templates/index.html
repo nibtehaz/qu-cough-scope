@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cough-Cov19</title>
+    <title>QuCoughScope</title>
 
 
 
@@ -26,9 +26,31 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper light-blue darken-4">
-                <a href="#" class="brand-logo center">QUCoughScope</a>
+                <div class="row" style="margin: 0; padding: 0;">
+                    <div class="col s7" style="font-size: 2.05rem; ">
+                        QUCoughScope
+                    </div>
+
+                    <div class="col s5" style="margin: 0; text-align: right;">
+                        <div class="switch">
+                            <label class="lang_select">
+                                <span style="color: aliceblue">
+                                    English
+                                </span>
+                                <input type="checkbox" onchange="language_changed()" id="language_switch">
+                                <span class="lever" style="margin-left: 5px;margin-right: 5px;"></span>
+                                <span style="color: aliceblue">
+                                    عربي
+                                </span>
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- <a href="#" class="brand-logo">QUCoughScope</a>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
-                </ul>
+                    <li>inline</li>
+                </ul> -->
             </div>
         </nav>
     </div>
@@ -41,13 +63,29 @@
         <br>
 
         <div class="question">
-            Welcome to the QUCoughScope, developed by Qatar University.
+            <span class="english_language">
+                Welcome to the QUCoughScope, developed by Qatar University.
+            </span>
+            <span class="arabic_language">
+                .مرحباً إلى التطبيق، المطور من قبل جامعة قطر
+            </span>
         </div>
         <br>
-        QUCoughScope uses artificial intelligence to infer probability of COVID-19 infection from cough and breath
-        sound along with several other information. Our deep learning models are trained on large public datasets. The sensitivities of asymptomatic and symptomatic patient detection are 95.86% and 92.77%, respectively.
-        
-        
+
+        <div class="english_language">
+            QUCoughScope uses artificial intelligence to infer probability of COVID-19 infection from cough and breath
+            sound along with several other information. Our deep learning models are trained on large public datasets.
+            The sensitivities of asymptomatic and symptomatic patient detection are 95.86% and 92.77%, respectively.
+        </div>
+        <div class="arabic_language arabic_para">
+            يستخدم التطبيق الذكاء الإصطناعي لإستنتاج إحتمالية الإصابة بعدوى كوفيد-19 ،
+            عنطريق تحليل صوت السعال و التنفس و العديد من المعلومات الأخرى. تم تدريب نماذج التعلم العميق خاصتنا
+            على قاعدة بيانات كبيرة تم جمعها من العامة. حساسية نموذج التعلم العميق
+            للكشف عن إحتمالية الإصابة بفيروس كورونا كوفيد-19 للمرضى الذين لا تظهر عليهم أعراض المرض 95.86% و
+            الذين تظهر عليهم أعراض المرض 92.7% مثل السعال
+
+        </div>
+
         <br>
         <br>
         <br>
@@ -55,26 +93,70 @@
 
         <div class="row">
             <div class="col s10 offset-s1">
-                <a class="waves-effect waves-light btn start_btn" onclick="start_app()">Start</a>
+                <a class="waves-effect waves-light btn start_btn" onclick="start_app()">
+                    <span class="english_language">
+                        Start
+                    </span>
+                    <span class="arabic_language">
+                        ابدأ
+                    </span>
+                </a>
             </div>
         </div>
 
         <div class="row">
             <div class="col s10 offset-s1">
-                <a class="waves-effect waves-cyan  btn-flat start_btn modal-trigger" href="#privacy">Privacy Policy</a>
+                <a class="waves-effect waves-cyan  btn-flat start_btn modal-trigger" href="#privacy">
+                    <span class="english_language">
+                        Privacy Policy
+                    </span>
+                    <span class="arabic_language">
+                        سياسية الخصوصية
+                    </span>
+                </a>
             </div>
         </div>
 
         <!-- Modal Structure -->
         <div id="privacy" class="modal bottom-sheet">
             <div class="modal-content">
-                <h4>Privacy Policy</h4>
-                <p>QUCoughScope is developed solely for academic research purposes, and no data will be shared with any
-                    third party.</p>
-                <p>All the user information will be anonymized. The users won't be tracked any way.</p>
+                <h4>
+                    <span class="english_language">
+                        Privacy Policy
+                    </span>
+                    <span class="arabic_language">
+                        سياسة الخصوصية
+                    </span>
+                </h4>
+
+                <p>
+                    <span class="english_language">
+                        QUCoughScope is developed solely for academic research purposes, and no data will be shared with
+                        any third party.
+                    </span>
+
+                    <span class="arabic_language">
+                        .تم تطوير البرنامج لأراضالبحث العلمي فقط،و لن تتم مشاركةالبيانات الخاصة بك مع أي جهة أخرى
+                    </span>
+                </p>
+                <p>
+                    <span class="english_language">
+                        All the user information will be anonymized. The users won't be tracked any way.
+                    </span>
+                    <span class="arabic_language">
+                        .جميع بيانات المستخدم ستكون مجهولة الهوية. لن يتم تتبع المستخدم على أي حال
+                    </span>
+                </p>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+                    <span class="english_language">
+                        Agree
+                    </span>
+                    <span class="arabic_language">
+                        موافق
+                    </span>
+                </a>
             </div>
         </div>
 
@@ -84,7 +166,12 @@
     <div id="page1" class="container survey_page">
 
         <div class="question">
-            Which is your biological sex?
+            <span class="english_language">
+                Which is your biological sex?
+            </span>
+            <span class="arabic_language">
+                ما هو جنسك؟
+            </span>
         </div>
 
         <div class="container">
@@ -92,32 +179,68 @@
                 <p>
                     <label>
                         <input class="with-gap" name="sex_inp" value="male" type="radio" />
-                        <span>Male</span>
+                        <span>
+                            <span class="english_language">
+                                Male
+                            </span>
+                            <span class="arabic_language">
+                                ذكر
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="sex_inp" value="female" type="radio" />
-                        <span>Female</span>
+                        <span>
+                            <span class="english_language">
+                                Female
+                            </span>
+                            <span class="arabic_language">
+                                أنثى
+                            </span>
+                        </span>
+
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="sex_inp" value="other" type="radio" />
-                        <span>Other</span>
+                        <span>
+                            <span class="english_language">
+                                Other
+                            </span>
+                            <span class="arabic_language">
+                                أخرى
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="sex_inp" value="prefer not to say" type="radio" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضل عدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
             </form>
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(1)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(1)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -127,7 +250,12 @@
     <div id="page2" class="container survey_page">
 
         <div class="question">
-            How old are you?
+            <span class="english_language">
+                How old are you?
+            </span>
+            <span class="arabic_language">
+                كم عمرك؟
+            </span>
         </div>
 
         <div class="container">
@@ -135,68 +263,145 @@
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="Under 20" type="radio" />
-                        <span>Under 20</span>
+                        <span>
+                            <span class="english_language">
+                                Under 20
+                            </span>
+                            <span class="arabic_language">
+                                أقل من 20 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="20-29" type="radio" />
-                        <span>20-29</span>
+                        <span>
+                            <span class="english_language">
+                                20-29
+                            </span>
+                            <span class="arabic_language">
+                                من 20 إلى 29 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="30-39" type="radio" />
-                        <span>30-39</span>
+                        <span>
+                            <span class="english_language">
+                                30-39
+                            </span>
+                            <span class="arabic_language">
+                                من 30 إلى 39 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="40-49" type="radio" />
-                        <span>40-49</span>
+                        <span>
+                            <span class="english_language">
+                                40-49
+                            </span>
+                            <span class="arabic_language">
+                                من 40 إلى 49 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="50-59" type="radio" />
-                        <span>50-59</span>
+                        <span>
+                            <span class="english_language">
+                                50-59
+                            </span>
+                            <span class="arabic_language">
+                                من 50 إلى 59 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="60-69" type="radio" />
-                        <span>60-69</span>
+                        <span>
+                            <span class="english_language">
+                                60-69
+                            </span>
+                            <span class="arabic_language">
+                                من 60 إلى 69 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="70-79" type="radio" />
-                        <span>70-79</span>
+                        <span>
+                            <span class="english_language">
+                                70-79
+                            </span>
+                            <span class="arabic_language">
+                                من 70إلى 79 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="80-89" type="radio" />
-                        <span>80-89</span>
+                        <span>
+                            <span class="english_language">
+                                80-89
+                            </span>
+                            <span class="arabic_language">
+                                من 80 إلى 89 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="90 or older" type="radio" />
-                        <span>90 or older</span>
+                        <span>
+                            <span class="english_language">
+                                90 or older
+                            </span>
+                            <span class="arabic_language">
+                                أكبر أو 90 سنة
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="age_inp" value="Prefer not to say" type="radio" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضل عدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
             </form>
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(2)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(2)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -205,7 +410,12 @@
     <div id="page3" class="container survey_page">
 
         <div class="question">
-            Do you have any of these medical conditions? (select all that apply)
+            <span class="english_language">
+                Do you have any of these medical conditions? (select all that apply)
+            </span>
+            <span class="arabic_language">
+                هل تعاني أي من الحالات الطبية التالية؟(حدد جميع ما ينطبق)
+            </span>
         </div>
 
 
@@ -214,105 +424,210 @@
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="None" class="filled-in" />
-                        <span>None</span>
+                        <span>
+                            <span class="english_language">
+                                None
+                            </span>
+                            <span class="arabic_language">
+                                لا شيء
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Prefer not to say" class="filled-in" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضل عدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Asthma" class="filled-in" />
-                        <span>Asthma</span>
+                        <span>
+                            <span class="english_language">
+                                Asthma
+                            </span>
+                            <span class="arabic_language">
+                                الربو
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Cystic fibrosis" class="filled-in" />
-                        <span>Cystic fibrosis</span>
+                        <span>
+                            <span class="english_language">
+                                Cystic fibrosis
+                            </span>
+                            <span class="arabic_language">
+                                تليف كيسي
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="COPD/emphysema" class="filled-in" />
-                        <span>COPD/emphysema</span>
+                        <span>
+                            <span class="english_language">
+                                COPD/emphysema
+                            </span>
+                            <span class="arabic_language">
+                                مرض الانسداد الرئوي المزمن/ انتفاخ الرئة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Pulmonary fibrosis" class="filled-in" />
-                        <span>Pulmonary fibrosis</span>
+                        <span>
+                            <span class="english_language">
+                                Pulmonary fibrosis
+                            </span>
+                            <span class="arabic_language">
+                                التليف الرئوي
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Other lung disease" class="filled-in" />
-                        <span>Other lung disease</span>
+                        <span>
+                            <span class="english_language">
+                                Other lung disease
+                            </span>
+                            <span class="arabic_language">
+                                أمراض رئوية أخرى
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="High blood pressure" class="filled-in" />
-                        <span>High blood pressure</span>
+                        <span>
+                            <span class="english_language">
+                                High blood pressure
+                            </span>
+                            <span class="arabic_language">
+                                إرتفاع ضغط الدم
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Angina" class="filled-in" />
-                        <span>Angina</span>
+                        <span>
+                            <span class="english_language">
+                                Angina
+                            </span>
+                            <span class="arabic_language">
+                                الذبحة الصدرية
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Stroke" class="filled-in" />
-                        <span>Stroke</span>
+                        <span>
+                            <span class="english_language">
+                                Stroke
+                            </span>
+                            <span class="arabic_language">
+                                السكتة الدماغية
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Previous heart attack" class="filled-in" />
-                        <span>Previous heart attack</span>
+                        <span>
+                            <span class="english_language">
+                                Previous heart attack
+                            </span>
+                            <span class="arabic_language">
+                                سكتة قلبية سابقة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Other heart disease" class="filled-in" />
-                        <span>Other heart disease</span>
+                        <span>
+                            <span class="english_language">
+                                Other heart disease
+                            </span>
+                            <span class="arabic_language">
+                                أمراض قلبية أخرى
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Diabetes" class="filled-in" />
-                        <span>Diabetes</span>
+                        <span>
+                            <span class="english_language">
+                                Diabetes
+                            </span>
+                            <span class="arabic_language">
+                                سكري
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Cancer" class="filled-in" />
-                        <span>Cancer</span>
+                        <span>
+                            <span class="english_language">
+                                Cancer
+                            </span>
+                            <span class="arabic_language">
+                                سرطان
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="disease_inp" value="Previous organ transplant" class="filled-in" />
-                        <span>Previous organ transplant</span>
+                        <span>
+                            <span class="english_language">
+                                Previous organ transplant
+                            </span>
+                            <span class="arabic_language">
+                                عملية زرع أعضاء سابقة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
@@ -320,7 +635,14 @@
                     <label>
                         <input type="checkbox" name="disease_inp" value="HIV or an impaired immune system"
                             class="filled-in" />
-                        <span>HIV/impaired immune system</span>
+                        <span>
+                            <span class="english_language">
+                                HIV/impaired immune system
+                            </span>
+                            <span class="arabic_language">
+                                فيروس نقص المناعة البشرية/ ضعف جهاز المناعة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
@@ -331,7 +653,14 @@
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(3)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(3)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -340,7 +669,12 @@
     <div id="page4" class="container survey_page">
 
         <div class="question">
-            Do you, or have you ever smoked (including e-cigarettes)?
+            <span class="english_language">
+                Do you, or have you ever smoked (including e-cigarettes)?
+            </span>
+            <span class="arabic_language">
+                هل تدخن، أو دخنت سابقاً؟ (مع احتساب السيجارةالإلكترونية )
+            </span>
         </div>
 
         <div class="container">
@@ -348,39 +682,81 @@
                 <p>
                     <label>
                         <input class="with-gap" name="smoke_inp" value="Never smoked" type="radio" />
-                        <span>Never smoked</span>
+                        <span>
+                            <span class="english_language">
+                                Never smoked
+                            </span>
+                            <span class="arabic_language">
+                                لم أدخن مطلقاً
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="smoke_inp" value="Ex-smoker" type="radio" />
-                        <span>Ex-smoker</span>
+                        <span>
+                            <span class="english_language">
+                                Ex-smoker
+                            </span>
+                            <span class="arabic_language">
+                                مدخن سابق
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="smoke_inp" value="Current Smoker (1-10 per day)" type="radio" />
-                        <span>Current Smoker (1-10 per day)</span>
+                        <span>
+                            <span class="english_language">
+                                Current Smoker (1-10 per day)
+                            </span>
+                            <span class="arabic_language">
+                                مدخن حالي (1 -10 يومياً)
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="smoke_inp" value="Current Smoker (11 or more per day)"
                             type="radio" />
-                        <span>Current Smoker (10+ per day)</span>
+                        <span>
+                            <span class="english_language">
+                                Current Smoker (10+ per day)
+                            </span>
+                            <span class="arabic_language">
+                                مدخن حالي (أكثر من 10 يومياً)
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="smoke_inp" value="prefer not to say" type="radio" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضلعجم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
             </form>
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(4)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(4)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -389,7 +765,12 @@
     <div id="page5" class="container survey_page">
 
         <div class="question">
-            Do you have any of the following symptoms currently? Check all that apply.
+            <span class="english_language">
+                Do you have any of the following symptoms currently? Check all that apply.
+            </span>
+            <span class="arabic_language">
+                هل تعاني أي من الأعراض التالية؟ (حدد جميع ما ينطبق)
+            </span>
         </div>
 
 
@@ -398,56 +779,113 @@
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="None" class="filled-in" />
-                        <span>None</span>
+                        <span>
+                            <span class="english_language">
+                                None
+                            </span>
+                            <span class="arabic_language">
+                                لا أعراض
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Fever" class="filled-in" />
-                        <span>Fever</span>
+                        <span>
+                            <span class="english_language">
+                                Fever
+                            </span>
+                            <span class="arabic_language">
+                                إرتفاع درجةالحرارة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Chills" class="filled-in" />
-                        <span>Chills</span>
+                        <span>
+                            <span class="english_language">
+                                Chills
+                            </span>
+                            <span class="arabic_language">
+                                قشعريرة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Dry cough" class="filled-in" />
-                        <span>Dry cough</span>
+                        <span>
+                            <span class="english_language">
+                                Dry cough
+                            </span>
+                            <span class="arabic_language">
+                                سعال جاف
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Wet cough" class="filled-in" />
-                        <span>Wet cough</span>
+                        <span>
+                            <span class="english_language">
+                                Wet cough
+                            </span>
+                            <span class="arabic_language">
+                                سعال رطب
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Breathing difficulty" class="filled-in" />
-                        <span>Breathing difficulty</span>
+                        <span>
+                            <span class="english_language">
+                                Breathing difficulty
+                            </span>
+                            <span class="arabic_language">
+                                صعوبة في التنفس
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Tightness in chest" class="filled-in" />
-                        <span>Tightness in chest</span>
+                        <span>
+                            <span class="english_language">
+                                Tightness in chest
+                            </span>
+                            <span class="arabic_language">
+                                شدفي الصدر
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Loss of taste and smell" class="filled-in" />
-                        <span>Loss of taste and smell</span>
+                        <span>
+                            <span class="english_language">
+                                Loss of taste and smell
+                            </span>
+                            <span class="arabic_language">
+                                فقدان حاستي الشمو التذوق
+                            </span>
+
+                        </span>
                     </label>
                 </p>
 
@@ -455,42 +893,84 @@
                     <label>
                         <input type="checkbox" name="symp_inp" value="Dizziness, confusion or vertigo"
                             class="filled-in" />
-                        <span>Dizziness, confusion or vertigo</span>
+                        <span>
+                            <span class="english_language">
+                                Dizziness, confusion or vertigo
+                            </span>
+                            <span class="arabic_language">
+                                دوخة أو إرتباك أو دوار
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Headache" class="filled-in" />
-                        <span>Headache</span>
+                        <span>
+                            <span class="english_language">
+                                Headache
+                            </span>
+                            <span class="arabic_language">
+                                صداع
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Muscle ache" class="filled-in" />
-                        <span>Muscle ache</span>
+                        <span>
+                            <span class="english_language">
+                                Muscle ache
+                            </span>
+                            <span class="arabic_language">
+                                آلام في العضلات
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Soar throat" class="filled-in" />
-                        <span>Soar throat</span>
+                        <span>
+                            <span class="english_language">
+                                Soar throat
+                            </span>
+                            <span class="arabic_language">
+                                ألم في الحنجرة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Runny or blocked nose" class="filled-in" />
-                        <span>Runny or blocked nose</span>
+                        <span>
+                            <span class="english_language">
+                                Runny or blocked nose
+                            </span>
+                            <span class="arabic_language">
+                                سيلان أو انسداد الأنف
+                            </span>
+                        </span>
                     </label>
                 </p>
 
                 <p>
                     <label>
                         <input type="checkbox" name="symp_inp" value="Prefer not to say" class="filled-in" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضل عدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
 
@@ -498,7 +978,15 @@
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(5)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(5)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+
+                    </a>
                 </div>
             </div>
         </div>
@@ -507,7 +995,19 @@
     <div id="page6" class="container survey_page">
 
         <div class="question">
-            What is your current COVID-19 testing status?
+            <span class="english_language">
+                What is your current COVID-19 testing status?
+
+                <br>
+                <span class="red-text">
+                    Disclaimer : This information will not be used by our method. This data will be stored for further improvements only.
+                </span>
+                <br>
+            </span>
+            <span class="arabic_language">
+                ما هي نتيحة فحصكالحالي ل كوفيد-19؟
+            </span>
+
         </div>
 
         <div class="container">
@@ -515,32 +1015,67 @@
                 <p>
                     <label>
                         <input class="with-gap" name="covidtest_inp" value="Never Tested" type="radio" />
-                        <span>Never Tested</span>
+                        <span>
+                            <span class="english_language">
+                                Never Tested
+                            </span>
+                            <span class="arabic_language">
+                                لم أقم بالفحص من قبل
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidtest_inp" value="Positive" type="radio" />
-                        <span>Positive</span>
+                        <span>
+                            <span class="english_language">
+                                Positive
+                            </span>
+                            <span class="arabic_language">
+                                نتيجة الفحص إيجابية
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidtest_inp" value="Negative" type="radio" />
-                        <span>Negative</span>
+                        <span>
+                            <span class="english_language">
+                                Negative
+                            </span>
+                            <span class="arabic_language">
+                                نتيجة الفحص سلبية
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidtest_inp" value="Prefer not to say" type="radio" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضل عدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
             </form>
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(6)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(6)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -549,7 +1084,12 @@
     <div id="page7" class="container survey_page">
 
         <div class="question">
-            Do you think you ever have/had a COVID-19 infection?
+            <span class="english_language">
+                Do you think you ever have/had a COVID-19 infection?
+            </span>
+            <span class="arabic_language">
+                هل تعتقد أنك أصبت بعدوى كوفيد-19 من قبل؟
+            </span>
         </div>
 
         <div class="container">
@@ -557,38 +1097,80 @@
                 <p>
                     <label>
                         <input class="with-gap" name="covidinfct_inp" value="Yes, Now" type="radio" />
-                        <span>Yes, Now</span>
+                        <span>
+                            <span class="english_language">
+                                Yes, Now
+                            </span>
+                            <span class="arabic_language">
+                                نعم، الآن
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidinfct_inp" value="Yes, In last 14 days" type="radio" />
-                        <span>Yes, In last 14 days</span>
+                        <span>
+                            <span class="english_language">
+                                Yes, In last 14 days
+                            </span>
+                            <span class="arabic_language">
+                                نعم، خلال ال 14 يوماً الماضية
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidinfct_inp" value="Yes, More than 14 days ago" type="radio" />
-                        <span>Yes, More than 14 days ago</span>
+                        <span>
+                            <span class="english_language">
+                                Yes, More than 14 days ago
+                            </span>
+                            <span class="arabic_language">
+                                نعم، منذ أكثر من 14 يوماً
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidinfct_inp" value="Never" type="radio" />
-                        <span>Never</span>
+                        <span>
+                            <span class="english_language">
+                                Never
+                            </span>
+                            <span class="arabic_language">
+                                أبداً
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="covidinfct_inp" value="Prefer not to say" type="radio" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضلعدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
             </form>
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(7)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(7)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -597,7 +1179,12 @@
     <div id="page8" class="container survey_page">
 
         <div class="question">
-            Are you in hospital now?
+            <span class="english_language">
+                Are you in hospital now?
+            </span>
+            <span class="arabic_language">
+                هل أنت في المستشفى الآن؟
+            </span>
         </div>
 
         <div class="container">
@@ -605,26 +1192,54 @@
                 <p>
                     <label>
                         <input class="with-gap" name="hospital_inp" value="Yes" type="radio" />
-                        <span>Yes</span>
+                        <span>
+                            <span class="english_language">
+                                Yes
+                            </span>
+                            <span class="arabic_language">
+                                نعم
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="hospital_inp" value="No" type="radio" />
-                        <span>No</span>
+                        <span>
+                            <span class="english_language">
+                                No
+                            </span>
+                            <span class="arabic_language">
+                                لا
+                            </span>
+                        </span>
                     </label>
                 </p>
                 <p>
                     <label>
                         <input class="with-gap" name="hospital_inp" value="Prefer not to say" type="radio" />
-                        <span>Prefer not to say</span>
+                        <span>
+                            <span class="english_language">
+                                Prefer not to say
+                            </span>
+                            <span class="arabic_language">
+                                أفضل عدم الإجابة
+                            </span>
+                        </span>
                     </label>
                 </p>
             </form>
 
             <div class="row">
                 <div class="col s10 offset-s1">
-                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(8)">Next</a>
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(8)">
+                        <span class="english_language">
+                            Next
+                        </span>
+                        <span class="arabic_language">
+                            التالي
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -632,11 +1247,16 @@
 
     <div id="page9" class="container survey_page">
         <div class="question">
-            Press the microphone button and cough for three times in 10 seconds.
+            <span class="english_language">
+                Press the microphone button and cough for three times in 10 seconds.
+            </span>
+            <span class="arabic_language">
+                يرجى الضغط على زر الميكروفون و السعال ثلاث مرات خلال عشر ثواني
+            </span>
 
-            <br>    
             <br>
-            <br>        
+            <br>
+            <br>
 
             <div id="record_btn_cough" class="record_btn waves-effect waves-light indigo darken-1">
                 <i class="material-icons large" onclick="start_record_cough()">mic</i>
@@ -647,16 +1267,28 @@
             <br>
 
             <div class="container" id="cough_audio_div" style="visibility: hidden;  font-size:0.75rem">
-                Please listen to the recorded audio to check if the cough has been recorded properly.
+                <span class="english_language">
+                    Please listen to the recorded audio to check if the cough has been recorded properly.
+                </span>
+                <span class="arabic_language">
+                    الرجاء الاستماع إلى التسجيل، تحقق اذا تم تسجيل السعال بنجاح
+                </span>
+                
                 <br>
                 <audio controls id="cough_audio" style="width: 80%;">
-                  Your browser does not support the audio element.
-                  </audio>
-                  <br>
-                If there are some problems with the recording, please press the microphone button and record again.
+                    Your browser does not support the audio element.
+                </audio>
+                <br>
+                <span class="english_language">
+                    If there are some problems with the recording, please press the microphone button and record again.
+                </span>
+                <span class="arabic_language">
+                    الرجاء الضغط على زر الميكروفون و التسجيل مجدداً في حال وجود مشكلة في التسجيل.
+                </span>
+                
             </div>
-            
-            
+
+
             <br>
 
             <div class="progress" id="progress_cough_wrapper" style=" visibility: hidden;">
@@ -665,13 +1297,19 @@
 
             <br>
 
-
         </div>
 
         <div class="row">
             <div class="col s10 offset-s1">
                 <a class="waves-effect waves-light btn start_btn" style="visibility: hidden;" id="cough_next_btn"
-                    onclick="next_page(9)">Next</a>
+                    onclick="next_page(9)">
+                    <span class="english_language">
+                        Next
+                    </span>
+                    <span class="arabic_language">
+                        التالي
+                    </span>
+                </a>
             </div>
         </div>
 
@@ -680,8 +1318,14 @@
 
     <div id="page10" class="container survey_page">
         <div class="question">
-            Press the microphone button and breathe in and out from your mouth as deeply as you can five times in 15
-            seconds. Please do so in a quiet environment.
+            <div class="english_language">
+                Press the microphone button and breathe in and out from your mouth as deeply as you can five times in 15
+                seconds. Please do so in a quiet environment.
+            </div>
+            <div class="arabic_language">
+                يرجى الضغط على زر الميكروفون، و التنفس بعمق قدر الإمكانللداخل و الخراج، من خلال الفم، خمس مرات خلال 15
+                ثانية. الرجاء التسجيل في محيط هادئ
+            </div>
 
             <br>
             <br>
@@ -696,13 +1340,24 @@
             <br>
 
             <div class="container" id="breath_audio_div" style="visibility: hidden; font-size:0.75rem">
-                Please listen to the recorded audio to check if the breath has been recorded properly.
+                <span class="english_language">
+                    Please listen to the recorded audio to check if the breath has been recorded properly.
+                </span>
+                <span class="arabic_language">
+                    الرجاء الإستماع إلى التسجيل، تحقق إذا تم تسجيل التنفس بنجاح.
+                </span>
+                
                 <br>
                 <audio controls id="breath_audio" style="width: 80%;">
-                  Your browser does not support the audio element.
-                  </audio>
-                  <br>
-                If there are some problems with the recording, please press the microphone button and record again.
+                    Your browser does not support the audio element.
+                </audio>
+                <br>
+                <span class="english_language">
+                    If there are some problems with the recording, please press the microphone button and record again.
+                </span>
+                <span class="arabic_language">
+                    الرجاء الضغط على زر الميكروفون و التسجيل مجدداً في حال وجود مشكلة في التسجيل.
+                </span>
             </div>
 
             <br>
@@ -716,7 +1371,14 @@
         <div class="row">
             <div class="col s10 offset-s1">
                 <a class="waves-effect waves-light btn start_btn" style="visibility: hidden;" id="breath_next_btn"
-                    onclick="next_page(10)">Next</a>
+                    onclick="next_page(10)">
+                    <span class="english_language">
+                        Next
+                    </span>
+                    <span class="arabic_language">
+                        التالي
+                    </span>
+                </a>
             </div>
         </div>
 
@@ -761,7 +1423,13 @@
 
     <div id="page11" class="container survey_page">
         <div class="question">
-            Processing
+            <span class="english_language">
+                Processing
+            </span>
+            <span class="arabic_language">
+                قيدالمعالجة
+            </span>
+            
         </div>
 
 

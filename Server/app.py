@@ -21,25 +21,27 @@ import zipfile
 from shutil import copyfile, rmtree
 import librosa
 import librosa.display
-
+from Inception_Networks import *
 
 
 # Data science tools
 import numpy as np
 import os
-#from skimage import io   
-#from skimage import measure, morphology
+from skimage import io   
+from skimage import measure, morphology
 import matplotlib.pyplot as plt
 import PIL
 import cv2 
 
 # Pytorch
-'''import torch
+import torch
 from torchvision import transforms
 from torch import optim, cuda, tensor
 from torch.utils.data import DataLoader 
 import torch.nn as nn
-from Inception_Networks import *'''
+
+from DSP import classify_cough
+
 
 ################
 # FLASK Params #
@@ -52,7 +54,7 @@ app.config['UPLOAD_FOLDER'] = 'database'
 ################
 # Model Params #
 ################
-'''
+
 ###############
 model_dir_1 = os.path.join('..','models','network1','densenet201_Cambridge_Cough_work_only_Breath_2Class_fold_1.pt')
 model_dir_2  =  os.path.join('..','models','network2','inception_v3_Cambridge_Cough_work_only_Breath_2Class_fold_1.pt')
@@ -104,7 +106,7 @@ model_5 = model_5.to('cpu')
 model_6 = model_6.to('cpu')  
 model_7 = model_7.to('cpu')  
 
-'''
+
 
 
 input_mean = {
@@ -119,6 +121,16 @@ input_std = {
     'Asymp_Cough' : [0.3329,0.2993,0.1512]
 }
 
+
+coughvid_model = pickle.load(open(os.path.join('coughvid_models', 'cough_classifier'), 'rb'))
+coughvid_scaler = pickle.load(open(os.path.join('coughvid_models','cough_classification_scaler'), 'rb'))
+
+def classify_cough_wrapper(cough_fl):
+
+    x, sr = librosa.load(cough_fl)
+    probability = classify_cough(x, sr, coughvid_model, coughvid_scaler)
+
+    print(probability)
     
 
 def predict(cough_fl, breath_fl, asymp):
@@ -227,8 +239,6 @@ def predict(cough_fl, breath_fl, asymp):
     return y
 
 
-
-
 @app.route('/', methods = ['GET', 'POST'])
 def home():
 	
@@ -238,6 +248,7 @@ def home():
 def web():
 	
     return render_template("index_web.html")
+
 
 
 @app.route('/negative', methods = ['GET', 'POST'])
@@ -250,6 +261,20 @@ def negative():
 def positive():
 	
     return render_template("positive.html")
+
+
+@app.route('/negative_arabic', methods = ['GET', 'POST'])
+def negative_arabic():
+	
+    return render_template("negative_arabic.html")
+
+
+@app.route('/positive_arabic', methods = ['GET', 'POST'])
+def positive_arabic():
+	
+    return render_template("positive_arabic.html")
+
+
 
 
 def create_user_id():
@@ -300,6 +325,9 @@ def cough_upload():
     fp = open(os.path.join(app.config['UPLOAD_FOLDER'], 'breath_sound', day,user_data['userid']+'_'+time+'.wav'), 'wb')
     fp.write(breath_content)
     fp.close()
+
+    #classify_cough_wrapper(os.path.join(app.config['UPLOAD_FOLDER'], 'cough_sound', day,user_data['userid']+'_'+time+'.wav'))
+    #classify_cough_wrapper(os.path.join(app.config['UPLOAD_FOLDER'], 'breath_sound', day,user_data['userid']+'_'+time+'.wav'))
 
 
     asymp = True
@@ -393,6 +421,7 @@ def audio_upload():
     print('----------------------')
 
     return jsonify({'predicted_class':predicted_class,'userid':user_data['userid']})
+
 
 
 if __name__ == '__main__':

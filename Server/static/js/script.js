@@ -1,6 +1,6 @@
 var userdata = {}
 var symptomdata = {}
-var audioblobs = [0,0];
+var audioblobs = [0, 0];
 var current_audio_index;
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function init() {
-   
+
 
 }
 
@@ -17,26 +17,60 @@ function start_app() {
 
   var userid = getCookie('userid');
 
-  current_audio_index = 0; 
+  current_audio_index = 0;
 
   document.getElementById('home').style.display = 'none';
 
   document.getElementById('cough_audio_div').style.visibility = "hidden";
   document.getElementById('breath_audio_div').style.visibility = "hidden";
-    
 
-  if(userid.length!=0){
+
+  if (userid.length != 0) {
     userdata['userid'] = userid;
     document.getElementById('page5').style.display = 'block';
   }
 
-  else{
+  else {
     document.getElementById('page1').style.display = 'block';
   }
 
-  
 
-  
+
+
+}
+
+
+function language_changed() {
+
+  var language_marker = document.getElementById("language_switch").checked;
+
+  if (language_marker) {
+    var elems = document.getElementsByClassName('english_language');
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].style.display = 'none';
+    }
+
+    var elems = document.getElementsByClassName('arabic_language');
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].style.display = 'inline';
+    }
+    var elem = document.getElementsByClassName('arabic_para');
+    elem[0].style.display = 'block';
+
+  }
+
+  else {
+    var elems = document.getElementsByClassName('english_language');
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].style.display = 'inline';
+    }
+
+    var elems = document.getElementsByClassName('arabic_language');
+    for (var i = 0; i < elems.length; i++) {
+      elems[i].style.display = 'none';
+    }
+  }
+
 }
 
 function next_page(cur_pg) {
@@ -179,31 +213,6 @@ function next_page(cur_pg) {
       return;
     }
     init_media_recorder();
-
-    $('#cough_file').on('change', function(e) {
-      e.preventDefault();        
-      
-      var fd1 = new FormData(document.getElementById("cough_upload"));
-
-      $("#images").prop('disabled', true);
-      $("#uploadcolor").removeClass('light-blue');
-      $("#uploadcolor").removeClass('accent-3'); 
-      $("#uploadcolor").addClass('blue-grey'); 
-
-      if(document.getElementById("images").files.length>10){
-          M.toast({html: "Please upload less than 10 images"})
-          return;
-      }
-      
-
-      if(document.getElementById("images").files.length==0){
-          $("#images").prop('disabled', false);
-          $("#uploadcolor").addClass('light-blue');
-          $("#uploadcolor").addClass('accent-3'); 
-          $("#uploadcolor").removeClass('blue-grey'); 
-          return;
-      }
-
   }
 
 
@@ -219,7 +228,15 @@ function next_page(cur_pg) {
   clear_toasts();
 
   document.getElementById(`page${cur_pg}`).style.display = 'none';
-  document.getElementById(`page${cur_pg + 1}`).style.display = 'block';
+
+  if (cur_pg == 6) {
+    document.getElementById(`page9`).style.display = 'block';
+  }
+
+  else {
+    document.getElementById(`page${cur_pg + 1}`).style.display = 'block';
+  }
+
 
 
 
@@ -263,6 +280,10 @@ function getCookie(cname) {
 
 
 function submit() {
+
+  var language_marker = document.getElementById("language_switch").checked;
+
+
   var fd = new FormData();
 
   fd.append('userdata', JSON.stringify(userdata));
@@ -285,10 +306,23 @@ function submit() {
     set_cookie(data['userid']);
     if (data['predicted_class'] === 'covid') {
 
-      window.location.href = "/positive";
+      if (language_marker) {
+        window.location.href = "/positive_arabic";
+      }
+
+      else {
+        window.location.href = "/positive";
+      }
+
     }
-    else{
-      window.location.href = "/negative";
+    else {
+      if (language_marker) {
+        window.location.href = "/negative_arabic";
+      }
+
+      else {
+        window.location.href = "/negative";
+      }
     }
 
   });

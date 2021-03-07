@@ -43,3 +43,20 @@ label {
     border-width: 7px !important;
  
 }
+
+.english_language {
+    display: inline;
+}
+
+.arabic_language {
+    display: none;    
+}
+
+.arabic_para {
+    text-align: right !important;
+    display: none;
+}
+
+.lang_select {
+    color: aliceblue !important;
+}
