@@ -1,0 +1,45 @@
+.record_btn {
+    
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    color: white;
+    padding: 1rem;;
+}
+
+.start_btn {
+    margin-left: 10%;
+    width: 80%;
+    border-radius: 5% !important;
+    text-align: center;
+}
+
+.survey_page {
+    width: 80% !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    margin-top: 10% !important;
+    padding: 5% !important;
+    background: white !important;
+    display: none;
+}
+
+.question {
+    font-size: 1.115rem;
+    text-align: center;
+}
+
+label {
+    color: #37474f !important;
+}
+
+.preloader-wrapper.big {
+    width: 128px !important;
+    height: 128px !important;
+}
+
+.circle-clipper .circle {
+ 
+    border-width: 7px !important;
+ 
+}

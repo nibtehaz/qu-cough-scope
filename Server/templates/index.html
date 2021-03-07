@@ -1,0 +1,808 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cough-Cov19</title>
+
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </link>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.css') }}">
+    </link>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+</head>
+
+
+<body class="cyan lighten-5">
+
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper light-blue darken-4">
+                <a href="#" class="brand-logo center">QUCoughScope</a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div id="home" class="container ">
+        <h3 style="text-align: center;">QUCoughScope</h3>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="question">
+            Welcome to the QUCoughScope, developed by Qatar University.
+        </div>
+        <br>
+        QUCoughScope uses artificial intelligence to infer probability of COVID-19 infection from cough and breath
+        sound along with several other information. Our deep learning models are trained on large public datasets. The sensitivities of asymptomatic and symptomatic patient detection are 95.86% and 92.77%, respectively.
+        
+        
+        <br>
+        <br>
+        <br>
+
+
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <a class="waves-effect waves-light btn start_btn" onclick="start_app()">Start</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <a class="waves-effect waves-cyan  btn-flat start_btn modal-trigger" href="#privacy">Privacy Policy</a>
+            </div>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="privacy" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Privacy Policy</h4>
+                <p>QUCoughScope is developed solely for academic research purposes, and no data will be shared with any
+                    third party.</p>
+                <p>All the user information will be anonymized. The users won't be tracked any way.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="page1" class="container survey_page">
+
+        <div class="question">
+            Which is your biological sex?
+        </div>
+
+        <div class="container">
+            <form id="sex">
+                <p>
+                    <label>
+                        <input class="with-gap" name="sex_inp" value="male" type="radio" />
+                        <span>Male</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="sex_inp" value="female" type="radio" />
+                        <span>Female</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="sex_inp" value="other" type="radio" />
+                        <span>Other</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="sex_inp" value="prefer not to say" type="radio" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(1)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="page2" class="container survey_page">
+
+        <div class="question">
+            How old are you?
+        </div>
+
+        <div class="container">
+            <form id="agegroup">
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="Under 20" type="radio" />
+                        <span>Under 20</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="20-29" type="radio" />
+                        <span>20-29</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="30-39" type="radio" />
+                        <span>30-39</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="40-49" type="radio" />
+                        <span>40-49</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="50-59" type="radio" />
+                        <span>50-59</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="60-69" type="radio" />
+                        <span>60-69</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="70-79" type="radio" />
+                        <span>70-79</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="80-89" type="radio" />
+                        <span>80-89</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="90 or older" type="radio" />
+                        <span>90 or older</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="age_inp" value="Prefer not to say" type="radio" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(2)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="container survey_page">
+
+        <div class="question">
+            Do you have any of these medical conditions? (select all that apply)
+        </div>
+
+
+        <div class="container">
+            <form id="disease">
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="None" class="filled-in" />
+                        <span>None</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Prefer not to say" class="filled-in" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Asthma" class="filled-in" />
+                        <span>Asthma</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Cystic fibrosis" class="filled-in" />
+                        <span>Cystic fibrosis</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="COPD/emphysema" class="filled-in" />
+                        <span>COPD/emphysema</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Pulmonary fibrosis" class="filled-in" />
+                        <span>Pulmonary fibrosis</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Other lung disease" class="filled-in" />
+                        <span>Other lung disease</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="High blood pressure" class="filled-in" />
+                        <span>High blood pressure</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Angina" class="filled-in" />
+                        <span>Angina</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Stroke" class="filled-in" />
+                        <span>Stroke</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Previous heart attack" class="filled-in" />
+                        <span>Previous heart attack</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Other heart disease" class="filled-in" />
+                        <span>Other heart disease</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Diabetes" class="filled-in" />
+                        <span>Diabetes</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Cancer" class="filled-in" />
+                        <span>Cancer</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="Previous organ transplant" class="filled-in" />
+                        <span>Previous organ transplant</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="disease_inp" value="HIV or an impaired immune system"
+                            class="filled-in" />
+                        <span>HIV/impaired immune system</span>
+                    </label>
+                </p>
+
+                <br>
+                <br>
+
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(3)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page4" class="container survey_page">
+
+        <div class="question">
+            Do you, or have you ever smoked (including e-cigarettes)?
+        </div>
+
+        <div class="container">
+            <form id="smoke">
+                <p>
+                    <label>
+                        <input class="with-gap" name="smoke_inp" value="Never smoked" type="radio" />
+                        <span>Never smoked</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="smoke_inp" value="Ex-smoker" type="radio" />
+                        <span>Ex-smoker</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="smoke_inp" value="Current Smoker (1-10 per day)" type="radio" />
+                        <span>Current Smoker (1-10 per day)</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="smoke_inp" value="Current Smoker (11 or more per day)"
+                            type="radio" />
+                        <span>Current Smoker (10+ per day)</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="smoke_inp" value="prefer not to say" type="radio" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(4)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page5" class="container survey_page">
+
+        <div class="question">
+            Do you have any of the following symptoms currently? Check all that apply.
+        </div>
+
+
+        <div class="container">
+            <form id="symptoms">
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="None" class="filled-in" />
+                        <span>None</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Fever" class="filled-in" />
+                        <span>Fever</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Chills" class="filled-in" />
+                        <span>Chills</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Dry cough" class="filled-in" />
+                        <span>Dry cough</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Wet cough" class="filled-in" />
+                        <span>Wet cough</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Breathing difficulty" class="filled-in" />
+                        <span>Breathing difficulty</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Tightness in chest" class="filled-in" />
+                        <span>Tightness in chest</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Loss of taste and smell" class="filled-in" />
+                        <span>Loss of taste and smell</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Dizziness, confusion or vertigo"
+                            class="filled-in" />
+                        <span>Dizziness, confusion or vertigo</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Headache" class="filled-in" />
+                        <span>Headache</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Muscle ache" class="filled-in" />
+                        <span>Muscle ache</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Soar throat" class="filled-in" />
+                        <span>Soar throat</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Runny or blocked nose" class="filled-in" />
+                        <span>Runny or blocked nose</span>
+                    </label>
+                </p>
+
+                <p>
+                    <label>
+                        <input type="checkbox" name="symp_inp" value="Prefer not to say" class="filled-in" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(5)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page6" class="container survey_page">
+
+        <div class="question">
+            What is your current COVID-19 testing status?
+        </div>
+
+        <div class="container">
+            <form id="covidtest">
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidtest_inp" value="Never Tested" type="radio" />
+                        <span>Never Tested</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidtest_inp" value="Positive" type="radio" />
+                        <span>Positive</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidtest_inp" value="Negative" type="radio" />
+                        <span>Negative</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidtest_inp" value="Prefer not to say" type="radio" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(6)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page7" class="container survey_page">
+
+        <div class="question">
+            Do you think you ever have/had a COVID-19 infection?
+        </div>
+
+        <div class="container">
+            <form id="covidinfection">
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidinfct_inp" value="Yes, Now" type="radio" />
+                        <span>Yes, Now</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidinfct_inp" value="Yes, In last 14 days" type="radio" />
+                        <span>Yes, In last 14 days</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidinfct_inp" value="Yes, More than 14 days ago" type="radio" />
+                        <span>Yes, More than 14 days ago</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidinfct_inp" value="Never" type="radio" />
+                        <span>Never</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="covidinfct_inp" value="Prefer not to say" type="radio" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(7)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page8" class="container survey_page">
+
+        <div class="question">
+            Are you in hospital now?
+        </div>
+
+        <div class="container">
+            <form id="hospital">
+                <p>
+                    <label>
+                        <input class="with-gap" name="hospital_inp" value="Yes" type="radio" />
+                        <span>Yes</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="hospital_inp" value="No" type="radio" />
+                        <span>No</span>
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        <input class="with-gap" name="hospital_inp" value="Prefer not to say" type="radio" />
+                        <span>Prefer not to say</span>
+                    </label>
+                </p>
+            </form>
+
+            <div class="row">
+                <div class="col s10 offset-s1">
+                    <a class="waves-effect waves-light btn start_btn" onclick="next_page(8)">Next</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page9" class="container survey_page">
+        <div class="question">
+            Press the microphone button and cough for three times in 10 seconds.
+
+            <br>    
+            <br>
+            <br>        
+
+            <div id="record_btn_cough" class="record_btn waves-effect waves-light indigo darken-1">
+                <i class="material-icons large" onclick="start_record_cough()">mic</i>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="container" id="cough_audio_div" style="visibility: hidden;  font-size:0.75rem">
+                Please listen to the recorded audio to check if the cough has been recorded properly.
+                <br>
+                <audio controls id="cough_audio" style="width: 80%;">
+                  Your browser does not support the audio element.
+                  </audio>
+                  <br>
+                If there are some problems with the recording, please press the microphone button and record again.
+            </div>
+            
+            
+            <br>
+
+            <div class="progress" id="progress_cough_wrapper" style=" visibility: hidden;">
+                <div class="determinate" id="progress_cough" style="width: 0%;"></div>
+            </div>
+
+            <br>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <a class="waves-effect waves-light btn start_btn" style="visibility: hidden;" id="cough_next_btn"
+                    onclick="next_page(9)">Next</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="page10" class="container survey_page">
+        <div class="question">
+            Press the microphone button and breathe in and out from your mouth as deeply as you can five times in 15
+            seconds. Please do so in a quiet environment.
+
+            <br>
+            <br>
+            <br>
+
+            <div id="record_btn_breath" class="record_btn waves-effect waves-light indigo darken-1">
+                <i class="material-icons large" onclick="start_record_breath()">mic</i>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="container" id="breath_audio_div" style="visibility: hidden; font-size:0.75rem">
+                Please listen to the recorded audio to check if the breath has been recorded properly.
+                <br>
+                <audio controls id="breath_audio" style="width: 80%;">
+                  Your browser does not support the audio element.
+                  </audio>
+                  <br>
+                If there are some problems with the recording, please press the microphone button and record again.
+            </div>
+
+            <br>
+
+            <div class="progress" id="progress_breath_wrapper" style=" visibility: hidden;">
+                <div class="determinate" id="progress_breath" style="width: 0%;"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <a class="waves-effect waves-light btn start_btn" style="visibility: hidden;" id="breath_next_btn"
+                    onclick="next_page(10)">Next</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div id="page11" class="container survey_page">
+        <div class="question">
+            Would you like to share your location?
+        </div>
+
+        This information will be used to estimate the spread of COVID-19 around the globe. But the users will not be tracked anyway.
+
+            <br>
+            <br>
+            <br>
+
+            <div id="record_btn_breath" class="record_btn waves-effect waves-light indigo darken-1">
+                <i class="material-icons large" onclick="start_record_breath()">mic</i>
+            </div>
+
+
+            <br>
+            <br>
+            <br>
+
+            <div class="progress" id="progress_breath_wrapper" style=" visibility: hidden;">
+                <div class="determinate" id="progress_breath" style="width: 0%;"></div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col s10 offset-s1">
+                <a class="waves-effect waves-light btn start_btn" style="visibility: hidden;" id="breath_next_btn"
+                    onclick="next_page(10)">Next</a>
+            </div>
+        </div>
+
+
+    </div> -->
+
+    <div id="page11" class="container survey_page">
+        <div class="question">
+            Processing
+        </div>
+
+
+
+        <div style="text-align: center; margin-top: 100px; margin-bottom: 100px;">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/record_cough.js') }}"></script>
+
+    <script>
+        init();
+        init_media_recorder();
+
+    </script>
+
+</body>
+
+</html>
